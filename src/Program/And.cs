@@ -4,6 +4,11 @@ public class And: ICompuerta
 {
     public string Nombre{ get; set; }
     public Dictionary<string, int> Entradas { get; set; }
+    
+    public And()
+    {
+        Entradas = new Dictionary<string, int>();
+    }
 
     public void AgregarEntrada(string unNombre, int Valor)
     {
