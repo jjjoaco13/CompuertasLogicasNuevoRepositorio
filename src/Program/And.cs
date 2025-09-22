@@ -2,7 +2,7 @@
 
 public class And: ICompuerta
 {
-    public string Nombre{ get; }
+    public string Nombre{ get; set; }
     public Dictionary<string, int> Entradas { get; set; }
 
     public void AgregarEntrada(string unNombre, int Valor)
