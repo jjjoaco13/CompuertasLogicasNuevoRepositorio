@@ -1,6 +1,7 @@
 ﻿namespace Library;
 
-public class Program
+public class 
+    Program
 {
     
 }
