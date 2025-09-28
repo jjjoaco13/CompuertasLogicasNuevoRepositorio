@@ -12,7 +12,7 @@ public class And: ICompuerta
 
     public void AgregarEntrada(string unNombre, int Valor)
     {
-        Entradas.Add(unNombre, Valor);
+        Entradas[unNombre] = Valor;
     }
 
     public int Calcular()

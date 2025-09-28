@@ -9,23 +9,26 @@ public class GarageGate
     public int C { get; set; }
 
     
-    public GarageGate()
+    public GarageGate(int unA, int unB, int unC)
     {
         this.Abierto = false;
+        this.A = unA;
+        this.B = unB;
+        this.C = unC;
     }
 
-    public int EstaAbierto(int unA, int unB, int unC)
+    public int EstaAbierto()
     {
         And primerAnd = new And();
-        primerAnd.AgregarEntrada("A", unA);
-        primerAnd.AgregarEntrada("B", unB);
-        primerAnd.AgregarEntrada("C", unC);
+        primerAnd.AgregarEntrada("A", this.A);
+        primerAnd.AgregarEntrada("B", this.B);
+        primerAnd.AgregarEntrada("C", this.C);
         int resultado1 = primerAnd.Calcular(); // Primer and (A,B y C = 1)
 
-        And segundoAnd = new And();
-        segundoAnd.AgregarEntrada("A", unA);
-        segundoAnd.AgregarEntrada("B", unB);
-        int resultado2 = segundoAnd.Calcular(); // Paso previo a negar A y B
+        Or primerOr = new Or();
+        primerOr.AgregarEntrada("A", A);
+        primerOr.AgregarEntrada("B", B);
+        int resultado2 = primerOr.Calcular(); // Paso previo a negar A y B
 
         Not primerNot = new Not();
         primerNot.AgregarEntrada("SegundoAnd", resultado2);
@@ -33,7 +36,7 @@ public class GarageGate
 
         And tercerAnd = new And();
         tercerAnd.AgregarEntrada("primerNot", resultado3);
-        tercerAnd.AgregarEntrada("C", unC);
+        tercerAnd.AgregarEntrada("C", C);
         int resultado4 = tercerAnd.Calcular();  // And que incliuye A' B' C
 
         Or resultadoFinal = new Or();

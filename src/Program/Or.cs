@@ -4,10 +4,15 @@ public class Or: ICompuerta
 {
     public string Nombre { get; set; }
     public Dictionary<string, int> Entradas { get; set; }
+    
+    public Or()
+    {
+        Entradas = new Dictionary<string, int>();
+    }
 
     public void AgregarEntrada(string unNombre, int Valor)
     {
-        Entradas.Add(unNombre, Valor);
+        Entradas[unNombre] = Valor;
     }
 
     public int Calcular()
